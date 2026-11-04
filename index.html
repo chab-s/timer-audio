@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timer</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10141D">
+    <link rel="apple-touch-icon" href="timer-icon-192.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Timer</h1>
+
+    <div class="settings">
+
+        <div class="field" role="group" aria-labelledby="delayLabel">
+            <span id="delayLabel">Time before start</span>
+            <div class="time-inputs">
+                <input type="number" id="delayMinutes" value="0" min="0" aria-label="Minutes before start" oninput="updatePreview()">
+                <span>min</span>
+                <input type="number" id="delaySeconds" value="10" min="0" max="59" aria-label="Seconds before start" oninput="updatePreview()">
+                <span>s</span>
+            </div>
+        </div>
+
+        <div class="field" role="group" aria-labelledby="durationLabel">
+            <span id="durationLabel">Total Time</span>
+            <div class="time-inputs">
+                <input type="number" id="durationMinutes" value="20" min="0" aria-label="Total minutes" oninput="updatePreview()">
+                <span>min</span>
+                <input type="number" id="durationSeconds" value="0" min="0" max="59" aria-label="Total seconds" oninput="updatePreview()">
+                <span>s</span>
+            </div>
+        </div>
+
+        <div class="field" role="group" aria-labelledby="beepLabel">
+            <span id="beepLabel">Beep interval</span>
+            <div class="time-inputs">
+                <input type="number" id="beepMinutes" value="1" min="0" aria-label="Beep interval minutes" oninput="updatePreview()">
+                <span>min</span>
+                <input type="number" id="beepSeconds" value="30" min="0" max="59" aria-label="Beep interval seconds" oninput="updatePreview()">
+                <span>s</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="delayDisplay"></div>
+    <div id="timerDisplay"></div>
+
+    <div class="button-container">
+        <button id="mainButton" onclick="handleTimerButton()">START</button>
+        <button id="testBeepButton" onclick="testBeep()">TEST BEEP</button>
+    </div>
+    <p id="sleepNotice" class="notice">
+        Keep this screen on while the timer runs: locking your device can stop the timer and the beeps.
+    </p>
+    <script src="app.js"></script>
+</body>
+</html>
